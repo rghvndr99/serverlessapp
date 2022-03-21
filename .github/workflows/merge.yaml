@@ -1,0 +1,15 @@
+name: Merge
+on:
+  pull_request:
+    types: [edited]
+
+jobs:
+  merge-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge action
+        id: merge
+        uses: actions/rebase@v1.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          COMMIT_MESSAGE: 'Merge done successfully!'
